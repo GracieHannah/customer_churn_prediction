@@ -1,4 +1,5 @@
-# Data-Driven Customer Retention Strategy for Interconnect
+# Customer Churn Prediction
+
 
 ## Project Overview
 
@@ -12,34 +13,20 @@ Customer churn reduces long-term revenue and increases customer acquisition cost
 
 ---
 
-## Services Offered by Interconnect
+## Business Objective
 
-Interconnect provides two main types of services:
-
-* **Landline phone service**
-* **Internet service** (DSL or Fiber)
-
-Customers may also subscribe to additional services such as:
-
-* Device Protection
-* Online Security
-* Technical Support
-* Online Backup
-* Streaming TV
-* Streaming Movies
-
-These services may influence customer satisfaction and churn behavior.
+The goal of this project is to help a telecom company reduce customer churn by identifying customers who are likely to cancel their services. By predicting churn in advance, the company can implement targeted retention strategies to keep valuable customers and reduce revenue loss.
 
 ---
 
-## Dataset
+## Data
 
 The data for this analysis is stored across four separate datasets:
 
-* `contract.csv` — customer contract information
-* `personal.csv` — demographic information
-* `internet.csv` — internet service details
-* `phone.csv` — phone service details
+* **`contract.csv`** — customer contract information
+* **`personal.csv`** — demographic information
+* **`internet.csv`** — internet service details
+* **`phone.csv`** — phone service details
 
 These datasets are merged into a single analytical dataset to enable a comprehensive analysis of customer behavior.
 
@@ -63,7 +50,17 @@ These datasets are merged into a single analytical dataset to enable a comprehen
 
 Once exploratory analysis was complete, categorical and numerical features were prepared for modeling. A **CatBoost classification model** was selected due to its ability to efficiently handle categorical variables and its strong performance on structured data.
 
-The dataset was split into training and validation sets, and model performance was evaluated using **ROC-AUC**
+Key steps in the modeling process included:
+
+* Merging multiple datasets containing contract information, customer demographics, internet services, and phone services
+* Performing data preprocessing and handling missing values
+* Converting categorical variables into a format suitable for modeling
+* Splitting the dataset into training and validation sets
+* Training several machine learning models to evaluate predictive performance
+* Selecting CatBoost as the final model due to its strong performance with categorical features
+* Evaluating the model using the ROC-AUC metric to measure classification performance
+
+The final model predicts whether a customer is likely to churn, making this a binary classification problem.
 
 ---
 
@@ -81,7 +78,7 @@ A ROC-AUC score of **0.93** indicates excellent separation between customers who
 
 ## Practical Application
 
-The trained CatBoost model could be integrated into Interconnect's customer management system to support proactive retention strategies.
+The trained CatBoost model could be integrated into the telecom's customer management system to support proactive retention strategies.
 
 A potential workflow could include:
 
